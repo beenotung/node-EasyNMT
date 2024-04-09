@@ -1,0 +1,71 @@
+{
+  "name": "node-easynmt",
+  "version": "0.0.0",
+  "description": "multi-language translate using UKPLab/EasyNMT",
+  "keywords": [
+    "translation",
+    "neural machine translation",
+    "EasyNMT",
+    "Opus-MT",
+    "mBART50",
+    "M2M_100",
+    "docker",
+    "node",
+    "browser",
+    "isomorphic",
+    "typescript",
+    "wrapper",
+    "client",
+    "server",
+    "api",
+    "http"
+  ],
+  "author": {
+    "name": "Beeno Tung",
+    "email": "aabbcc1241@yahoo.com.hk",
+    "url": "https://beeno-tung.surge.sh"
+  },
+  "license": "BSD-2-Clause",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "browser": "./bundle.js",
+  "unpkg": "./bundle.js",
+  "bin": {
+    "easynmt-server": "./start-server.js"
+  },
+  "files": [
+    "bundle.js",
+    "client.js",
+    "client.d.ts",
+    "cli.js",
+    "config.js",
+    "index.js",
+    "server.js",
+    "cli.d.ts",
+    "config.d.ts",
+    "index.d.ts",
+    "server.d.ts"
+  ],
+  "scripts": {
+    "test": "tsc --noEmit",
+    "clean": "rimraf *.js *.d.ts",
+    "tsc": "tsc -p .",
+    "bundle": "esbuild --bundle --outfile=bundle.js browser.ts",
+    "build": "run-s clean tsc bundle"
+  },
+  "dependencies": {
+    "cast.ts": "^1.12.2",
+    "debug": "^4.3.4"
+  },
+  "devDependencies": {
+    "@beenotung/tslib": "^23.4.0",
+    "@types/debug": "^4.1.12",
+    "@types/node": "^20.12.5",
+    "esbuild": "^0.20.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.4"
+  }
+}
