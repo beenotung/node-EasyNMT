@@ -1,6 +1,6 @@
 # node-EasyNMT
 
-multi-language translate using UKPLab/EasyNMT
+multi-language translate using [UKPLab/EasyNMT](https://github.com/UKPLab/EasyNMT)
 
 Remark: For the server side, you need to have docker installed and available in the `PATH`. Also, your current user should have the privilege to run docker cli.
 
