@@ -26,6 +26,14 @@
     "url": "https://beeno-tung.surge.sh"
   },
   "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beenotung/node-EasyNMT.git"
+  },
+  "homepage": "https://github.com/beenotung/node-EasyNMT#readme",
+  "bugs": {
+    "url": "https://github.com/beenotung/node-EasyNMT/issues"
+  },
   "main": "./index.js",
   "types": "./index.d.ts",
   "browser": "./bundle.js",
