@@ -2,6 +2,8 @@
 
 multi-language translate using [UKPLab/EasyNMT](https://github.com/UKPLab/EasyNMT)
 
+[![npm Package Version](https://img.shields.io/npm/v/node-easynmt)](https://www.npmjs.com/package/node-easynmt)
+
 Remark: For the server side, you need to have docker installed and available in the `PATH`. Also, your current user should have the privilege to run docker cli.
 
 ## Usage (browser)
