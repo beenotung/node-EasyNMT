@@ -14,17 +14,10 @@ Remark: For the server side, you need to have docker installed and available in 
   console.log(easyNMT)
   /*
   {
-    // for direct usage
-    compress,
-    decompress,
-
-    // for custom wrapper
-    decode,
-    addValue,
-
-    // to remove undefined object fields
-    trimUndefined,
-    trimUndefinedRecursively,
+    translate,
+    patchedTranslate,
+    clearCache,
+    preloadModel,
   }
   */
 </script>
@@ -65,14 +58,86 @@ console.log(`sample: ${zh} -> ${en}`)
 
 ### Typescript Signature
 
+Core Function: `translate()`
+
 ```typescript
-export function translate(options: {
+/**
+ * @description set HTTP request to the translate service running in the docker container
+ * */
+export function translate(options: TranslateOptions): Promise<string>
+
+export type TranslateOptions = {
+  /** @default 'localhost' */
+  host?: string
+  /** @default 24080 */
+  port?: number
+  /** @example 'Hello World!' */
   text: string
+  /** @example 'zh' */
   target_lang: string
   /** @description auto detect if not specified */
   source_lang?: string
+  /** @default false */
   debug?: boolean
-}): Promise<string>
+}
+```
+
+Patched core function: `patchedTranslate()`
+
+```typescript
+/**
+ * @description apply combination of fixes to workaround common errors
+ */
+export async function patchedTranslate(
+  options: PatchedTranslateOptions,
+): Promise<string>
+
+export type PatchedTranslateOptions = TranslateOptions & {
+  /**
+   * @description to avoid ajax timeout when doing lots on translate concurrently
+   * @default true
+   * */
+  async_queue?: boolean
+  /**
+   * @description to keep in-memory cache
+   * @default true
+   * */
+  cached?: boolean
+  /**
+   * @description to avoid repeating (wrong) result.
+   * e.g. without wrapping: Transparent -> 透明透明
+   * @default true
+   */
+  wrap_text?: boolean
+  /**
+   * @description trim the output if the input is already trimmed
+   * @default true
+   */
+  smart_trim?: boolean
+}
+```
+
+Helper Functions:
+
+```typescript
+/**
+ * @description optionally step to preload the translate model before the actual usage.
+ */
+export async function preloadModel(options: {
+  target_lang: string
+  source_lang: string
+  /**
+   * @description to log in console or not
+   * @default false
+   *
+   */
+  debug?: boolean
+}): Promise<void>
+
+/**
+ * @description release the memory used by patchedTranslate()
+ */
+export function clearCache(): void
 ```
 
 ## Usage (cli)
