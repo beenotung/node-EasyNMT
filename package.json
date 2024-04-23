@@ -56,7 +56,7 @@
   ],
   "scripts": {
     "test": "tsc --noEmit",
-    "clean": "rimraf *.js *.d.ts",
+    "clean": "rimraf *.js *.d.ts && git checkout bin.js",
     "tsc": "tsc -p .",
     "bundle": "esbuild --bundle --outfile=bundle.js browser.ts",
     "build": "run-s clean tsc bundle"
