@@ -42,6 +42,7 @@
     "easynmt-server": "./bin.js"
   },
   "files": [
+    "bin.js",
     "bundle.js",
     "client.js",
     "client.d.ts",
