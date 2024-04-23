@@ -39,7 +39,7 @@
   "browser": "./bundle.js",
   "unpkg": "./bundle.js",
   "bin": {
-    "easynmt-server": "./start-server.js"
+    "easynmt-server": "./bin.js"
   },
   "files": [
     "bundle.js",
