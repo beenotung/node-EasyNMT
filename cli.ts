@@ -50,11 +50,12 @@ for (let i = 2; i < process.argv.length; i++) {
 Usage: ${cmd} [options]
 
 Options:
-  --port <port>   | Set the port number (default: 24080)
-  --image <image> | Set the Docker image name (default: 'easynmt/api:2.0-cpu')
-  --debug         | Enable debug mode
-  -v, --version   | Display the version number
-  -h, --help      | Show this help message
+  --port <port>      | Set the port number (default: 24080)
+  --image <name>     | Set the Docker image name (default: 'easynmt/api:2.0-cpu')
+  --container <name> | Set the Docker container name (default: 'docker-easynmt' or existing instance's name)
+  --debug            | Enable debug mode
+  -v, --version      | Display the version number
+  -h, --help         | Show this help message
 
 Examples:
 ${cmd}
